@@ -1,4 +1,4 @@
-version: 2.1
+version: 2.2
 
 jobs:
   build:
@@ -7,10 +7,10 @@ jobs:
     steps:
       - checkout
       - run: npm i 
-      - save cache: 
+      - save_cache: 
           key: "npm-packages"
           paths: 
-            - /src/modules
+            - /src/node modules
       - run: npm run lint 
 
   test:
@@ -19,7 +19,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: 
+          keys: 
             - "npm-packages"
       - run: npm i
       - run: npm run test
@@ -30,7 +30,7 @@ jobs:
     steps: 
       - checkout
       - restore_cache:
-          key: 
+          keys: 
             - "npm-packages"
       - run: npm audit
                    
