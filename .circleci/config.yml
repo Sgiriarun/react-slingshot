@@ -1,4 +1,4 @@
-version: 2.2
+version: 2.1
 
 jobs:
   build:
@@ -24,7 +24,7 @@ jobs:
       - run: npm i
       - run: npm run test
 
-  analyse:
+  analyze:
     docker: 
       - image: circleci/node:13.8.0
     steps: 
@@ -35,13 +35,13 @@ jobs:
       - run: npm audit
                    
 workflows:
-  welcome_workflow_name:
+  workflow_name:
     jobs:
       - build
       - test: 
           requires: 
             - build
-      - analyse:
+      - analyze:
           requires: 
             - test
 
